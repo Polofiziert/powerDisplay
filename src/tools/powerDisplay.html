@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../dist/css/output.css" rel="stylesheet">
+</head>
+<body>
+    
+   <!--
+        This page requires some changes to your config: Plugin @tailwindcss/forms
+      -->
+      <div class="isolate bg-white px-12 py-24 sm:py-8 lg:px-96">
+
+        <!--
+          Blury Background
+        -->
+        <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
+          <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff9b70] to-[#fff200] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+    
+        <div class="mx-auto max-w-1xl grid grid-rows-1 grid-cols-4 lg:max-w-4xl">
+            <div class="my-12 mx-auto lg:mx-0">
+
+            </div>
+            <div class="col-span-2 mx-auto text-center">
+                <h2 class="text-base font-semibold leading-7 text-indigo-600 ">All Power in your Eyes.</h2>
+                <p class="mt-6 text-7xl leading-8 text-gray-600">Power.</p>
+            </div>
+
+        </div>
+    
+          <div class="mx-auto mt-4 max-w-6xl sm:mt-12">
+              <div class="space-y-24"> 
+    
+                <div class="pb-12">
+                  <div class="mt-10 grid grid-cols-4 gap-x-6 gap-y-8">
+                    <div class="bg-white  col-span-1 max-h-24 ring-1 ring-offset-blue-500 rounded">
+                        <div class="px-2 py-2">
+                            <div class="justify-between items-center flex mt-1">
+                                <div>
+                                    <div class="justify-between items-center flex text-gray-400 uppercase font-light">
+                                        <p>&sum;</p>
+                                    </div>
+                                    <p id="totalI_field" class="font-bold text-2xl">
+                                        48A
+                                    </p>
+                                </div>
+                                <div class="font-bold text-2xl ">                                    
+                                    <p id="totalFreq_field" class="motion-reduce:animate-pulse text-green-400">
+                                        50Hz
+                                    </p>
+                                    <p id="totalVA_field" class="motion-reduce:animate-pulse text-green-400">
+                                        11.04kVA
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="justify-center flex items-center">
+                                <div class="w-full bg-white rounded-full h-2.5 dark:bg-white">
+                                    <div id="totalI_bar" class="bg-green-300 h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>                           
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white  col-span-1 max-h-24 ring-1 ring-offset-blue-500 rounded">
+                        <div class="px-2 py-2">
+                            <div class="justify-between items-center flex mt-1">
+                                <div>
+                                    <div class="text-gray-400 uppercase font-light">
+                                        <p>L1</p>
+                                    </div>
+                                    <p id="I1_field" class="font-bold text-2xl" >
+                                        16A
+                                    </p>
+                                </div>
+                                <div class="font-bold text-2xl">
+                                    <p id="u1N_field" class="motion-reduce:animate-pulse text-green-400">
+                                        230V
+                                    </p>
+                                    <span id="u12_field" class="motion-reduce:animate-pulse text-green-400">
+                                        400V
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="justify-center flex items-center">
+                                <div class="w-full bg-white rounded-full h-2.5 dark:bg-white">
+                                    <div id="I1_bar" class="bg-green-300 h-2.5 rounded-full" style="width: 40%"></div>
+                                </div>                           
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white  col-span-1 max-h-24 ring-1 ring-offset-blue-500 rounded">
+                        <div class="px-2 py-2">
+                            <div class="justify-between items-center flex mt-1">
+                                <div>
+                                    <div class="justify-between items-center flex text-gray-400 uppercase font-light">
+                                        <p>L2</p>
+                                    </div>
+                                    <p id="I2_field" class="font-bold text-2xl" >
+                                        16A
+                                    </p>
+                                </div>
+                                <div class="font-bold text-2xl">
+                                    <p id="u2N_field" class="motion-reduce:animate-pulse text-green-400">
+                                        230V
+                                    </p>
+                                    <span id="u23_field" class="motion-reduce:animate-pulse text-green-400">
+                                        400V
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="justify-center flex items-center">
+                                <div class="w-full bg-white rounded-full h-2.5 dark:bg-white">
+                                    <div id="I2_bar" class="bg-green-300 h-2.5 rounded-full" style="width: 40%"></div>
+                                </div>                           
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white  col-span-1 max-h-24 ring-1 ring-offset-blue-500 rounded">
+                        <div class="px-2 py-2">
+                            <div class="justify-between items-center flex mt-1">
+                                <div>
+                                    <div class="justify-between items-center flex text-gray-400 uppercase font-light">
+                                        <p>L3</p>
+                                    </div>
+                                    <p id="I3_field" class="font-bold text-2xl" >
+                                        16A
+                                    </p>
+                                </div>
+                                <div class="font-bold text-2xl">
+                                    <p id="u3N_field" class="motion-reduce:animate-pulse text-green-400">
+                                        230V
+                                    </p>
+                                    <span id="u13_field" class="motion-reduce:animate-pulse text-green-400">
+                                        400V
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="justify-center flex items-center">
+                                <div class="w-full bg-white rounded-full h-2.5 dark:bg-white">
+                                    <div id="I3_bar" class="bg-green-300 h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>                           
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-white col-span-1 ring-1 ring-offset-blue-500 rounded px-2 py-2">
+                        <div >
+                            <canvas id="powerGraph" class="w-full h-auto" width="1000" height="1000">Your browser does not support the canvas element.</canvas>
+                        </div>
+                        <div class="justify-between items-center flex mt-1">
+                            <div class="font-bold text-2xl">
+                                <p class="motion-reduce:animate-puls text-gray-400">
+                                    I-N
+                                </p>
+                                <span class="motion-reduce:animate-pulse text-gray-400">
+                                    Cos &phi;
+                                </span>
+                            </div>
+                            <div class="font-bold text-2xl">
+                                <p id="IN_field" class="motion-reduce:animate-pulse text-green-400">
+                                    12A
+                                </p>
+                                <span id="totalCosPhi_field" class="motion-reduce:animate-pulse text-green-400">
+                                    0,9&deg;
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white col-span-3 ring-1 ring-offset-blue-500 rounded">
+
+                        <div class="grid grid-cols-4">
+                            <div class="col-span-4">
+                                <div class="grid grid-cols-4 text-center">
+                                    <div id="powerChart_button" class="p-1 ring-1 ring-indigo-400 rounded cursor-pointer">
+                                        Power Chart
+                                    </div>
+                                    <div id="voltageChart_button" class="p-1 ring-indigo-400 cursor-pointer">
+                                        Voltage Chart
+                                    </div>
+                                    <div id="hello_button" class="p-1 ring-indigo-400 cursor-pointer">
+                                        hello
+                                    </div>
+                                    <div id="settings_button" class="p-1 ring-indigo-400 cursor-pointer">
+                                        Settings
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menue1_area" class="col-span-4" onclick=''>
+                                <p class="text-center"> I, I1, I2, I3 in A</p>
+                                <canvas id="powerChart">Your browser does not support the canvas element.</canvas>
+                            </div>
+                            <div id="menue2_area" class="col-span-4 hidden">
+                                <p class="text-center"> U1, U2, U3 in V</p>
+                                <canvas id="voltageU123Chart">Your browser does not support the canvas element.</canvas>                            </div>
+                            <div id="menue3_area" class="col-span-4 hidden">
+                                menue3
+                            </div>
+                            <div id="menue4_area" class="col-span-4 hidden">
+                                <label for="maxI_field">Max I per Phase</label>
+                                <input id="maxI_field" class="ring-1 ring-indigo-500" placeholder="16A" value="16">
+                            </div>
+                        </div>
+                    </div>
+    
+                  </div>
+                </div>
+    
+
+          </div>
+    
+    
+        </div>
+<script src="../js/powerMath.js"></script>
+<script src="../js/powerData.js"></script>
+<script src="../js/powerDisplay.js"></script>
+<script src="../../node_modules/chart.js/dist/chart.umd.js"></script>
+<script src="../js/luxon.js"></script>
+<script src="../../node_modules/chartjs-adapter-luxon/dist/chartjs-adapter-luxon.umd.min.js"></script>
+<script src="../js/powerGraph.js"></script>
+<!-- <script src="../js/powerChart.js"></script>-->
+<script src="../js/powerChart.js"></script>
+
+
+
+
+<script>
+    const mItimeCapsual = mI.capsual();
+    var intervalIndex = 0;
+
+    drawPowerVeks(mItimeCapsual.I1.get,mItimeCapsual.I2.get,mItimeCapsual.I3.get, pDi.element("maxI_field").value);
+    goThrouElements(mItimeCapsual);
+
+    setInterval(function () {
+        var DateTime = luxon.DateTime;  // get the time object from the luxon time lib
+        const mItimeCapsual = mI.capsual(); // get a frozen time capsual of the current messurements for a coherent interpretation
+        intervalIndex ++; // keep track of nuber of intervalls
+
+        drawPowerVeks(mItimeCapsual.I1.get,mItimeCapsual.I2.get,mItimeCapsual.I3.get, pDi.element("maxI_field").value); //Draw the vector graph for In-123
+        goThrouElements(mItimeCapsual); // get all elements with id set in document and iterate on them to set the messurment data where the Id fits the messurements name
+
+        pDi.setElementData(mItimeCapsual); //set the data for all spezial filds manual
+
+        pDi.element("maxI_field").onchange = function(){ 
+            drawPowerVeks(mItimeCapsual.I1.get,mItimeCapsual.I2.get,mItimeCapsual.I3.get, pDi.element("maxI_field").value); 
+        };
+        pDi.element("powerChart_button").onclick = function(){
+            console.log("powerChart activ");
+            pDi.element("menue1_area").classList.remove("hidden");
+            pDi.element("powerChart_button").classList.add("ring-1");
+            pDi.element("menue2_area").classList.add("hidden");
+            pDi.element("menue3_area").classList.add("hidden");
+            pDi.element("menue4_area").classList.add("hidden");
+        };
+        pDi.element("voltageChart_button").onclick = function(){
+            console.log("powerChart activ");
+            pDi.element("menue1_area").classList.add("hidden");
+            pDi.element("menue2_area").classList.remove("hidden");
+            pDi.element("voltageChart_button").classList.add("ring-1");
+            pDi.element("menue3_area").classList.add("hidden");
+            pDi.element("menue4_area").classList.add("hidden");
+        };
+        pDi.element("hello_button").onclick = function(){
+            console.log("powerChart activ");
+            pDi.element("menue1_area").classList.add("hidden");
+            pDi.element("menue2_area").classList.add("hidden");
+            pDi.element("menue3_area").classList.remove("hidden");
+            pDi.element("hello_button").classList.add("ring-1");
+            pDi.element("menue4_area").classList.add("hidden");
+        };
+        pDi.element("settings_button").onclick = function(){
+            console.log("powerChart activ");
+            pDi.element("menue1_area").classList.add("hidden");
+            pDi.element("menue2_area").classList.add("hidden");
+            pDi.element("menue3_area").classList.add("hidden");
+            pDi.element("menue4_area").classList.remove("hidden");
+            pDi.element("settings_button").classList.add("ring-1");
+        };
+
+
+        var newChartDataLineI = pDi.makeChartDataLineI(mItimeCapsual);
+        addData(powerChart, DateTime.now().toFormat('HH:mm:ss'), newChartDataLineI);
+
+        var newChartDataLineU123 = pDi.makeChartDataLineU(mItimeCapsual);
+        addData(voltageU123Chart, DateTime.now().toFormat('HH:mm:ss'), newChartDataLineU123);
+
+
+        if(intervalIndex >= 100){shiftData(powerChart)};
+        if(intervalIndex >= 20){shiftData(voltageU123Chart)};
+        //powerData.saveMessurementData(newChartDataLine);
+
+    }, 2000);
+</script>
+
+</body>
+</html>

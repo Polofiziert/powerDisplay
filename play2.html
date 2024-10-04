@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML5 Canvas</h1>
+<h2>Draw a Line</h2>
+
+<canvas id="myCanvas" width="500" height="500" style=""></canvas>
+
+<input id="il1" type="range" min="0" max="30" value="16">
+<input id="il2" type="range" min="0" max="30" value="16">
+<input id="il3" type="range" min="0" max="30" value="16">
+
+
+<script>
+    function sine(degree) {
+        // radians = degrees * PI / 180
+        let x = Math.sin(degree * Math.PI / 180);
+        return x.toFixed(2);   
+    }
+    function cos(degree) {
+        // radians = degrees * PI / 180
+        let x = Math.cos(degree * Math.PI / 180);
+        return x.toFixed(2);   
+    }
+    function addVec(vectorA, vectorB){
+        return {
+            x: vectorA.x + vectorB.x,
+            y: vectorA.y + vectorB.y
+        };
+    }
+    function subVec(vectorA, vectorB){
+        return {
+            x: vectorB.x - vectorA.x,
+            y: vectorB.y - vectorA.y
+        };
+    }
+    function multVec(vectorA, vectorB){
+        return {
+            x: vectorA.x * vectorB.x,
+            y: vectorA.y * vectorB.y
+        };
+    }
+    function scaleVec(vector){
+        return {
+            x: vector.x * scale,
+            y: vector.y * scale
+        };
+    }
+    function amountVec(vector){
+        return Math.sqrt((vector.x ** 2) + (vector.y ** 2)); 
+    }
+    function getVecFromPoint(pointA, pointB){
+        return {
+            x: pointB.x - pointA.x,
+            y: pointB.y - pointB.y
+        }
+    }
+    function getVecFromAngle(length, angle){
+        return {
+            x: cos(angle)*length,
+            y: sine(angle)*length
+        }
+    }
+    function drawVec(vector, from, origin, color, scale, sWidth){
+        var scale = {x: scale, y: scale};
+        vector = multVec(vector, scale);
+        from = multVec(from, scale);
+
+        var to = addVec(from, vector); //get vector between points of vector
+
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = sWidth;
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x,to.y);
+        ctx.stroke();
+    }
+
+        // Create a canvas:
+    const canvas = document.getElementById("myCanvas");
+    const il1Slider = document.getElementById("il1");
+    const il2Slider = document.getElementById("il2");
+    const il3Slider = document.getElementById("il3");
+
+
+
+//--------------------------------------------------------------------------------------
+    var n=15, c=canvas.height/2, stroke=10;
+    const ctx = canvas.getContext("2d");
+    ctx.translate(c,c)
+
+    var origin = {x: c, y:c};
+    var zero = {x:-0 ,y:0};
+
+    drawPowerVeks = function(il1,il2,il3) {
+        var origin = {x: c, y:c};
+        var zero = {x:-0 ,y:0};
+        var xyMinus={x:-1,y:-1}
+        var yMinus={x:1,y:-1}
+        var alp1=90; alp2=30; alp3=30,n=5,stroke=2;
+
+        var vecIL1 = getVecFromAngle(il1, alp1);
+        var vecIL2 = getVecFromAngle(il2, alp2);
+        var vecIL3 = getVecFromAngle(il3, alp3);
+
+        vecIL3 = multVec(vecIL3, yMinus); //mirror the vec over the y achse by inverting the y koordinate
+        vecIL2 = multVec(vecIL2, xyMinus); //mirror the vec over the zeropoint by inverting it
+
+        vecIL12 = addVec(vecIL1, vecIL2);
+        vecIL123 = addVec(vecIL12, vecIL3);
+
+        console.log("IN" + amountVec(vecIL123));
+
+
+        ctx.clearRect(c*-1, c*-1, c*2, c*2);
+
+
+
+        // drawGrid();
+        drawVec(vecIL1, zero, origin, "red", n, stroke);
+        drawVec(vecIL2, zero, origin, "green", n, stroke);
+        drawVec(vecIL3, zero, origin, "blue", n, stroke);
+
+        drawVec(vecIL2, vecIL1, origin, "pink", n, stroke);
+        drawVec(vecIL3, vecIL12, origin, "pink", n, stroke);
+        drawVec(vecIL123, zero, origin, "cyan", n, stroke);
+
+        console.log("----------------------");
+        console.log(vecIL1);
+        console.log(vecIL2);
+        console.log(vecIL3);
+
+
+
+    };
+    drawGrid = function(){
+        //grid
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.moveTo(c,0);
+        ctx.lineTo(c*-1,0);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.moveTo(0,c);
+        ctx.lineTo(0,c*-1);
+        ctx.stroke();
+    }
+
+    drawPowerVeks(il1Slider.value,il2Slider.value,il3Slider.value);
+    il1Slider.oninput = function(){drawPowerVeks(il1Slider.value,il2Slider.value,il3Slider.value)};
+    il2Slider.oninput = function(){drawPowerVeks(il1Slider.value,il2Slider.value,il3Slider.value)};
+    il3Slider.oninput = function(){drawPowerVeks(il1Slider.value,il2Slider.value,il3Slider.value)};
+
+
+
+
+
+
+
+
+
+    /*
+        //grid
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(c,0);
+    ctx.lineTo(c,c*2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(0,c);
+    ctx.lineTo(c*2,c);
+    ctx.stroke();
+
+    il1Slider.oninput = function(){
+        var alp=270, il1 = this.value;
+
+        var vecIL1 = getVecFromAngle(this.value, alp);
+
+        drawVec(vecIL1, zero, origin, "red", n, stroke);
+        console.log(il1);
+    }
+
+    il2Slider.oninput = function(){
+        var alp=150, il2 = this.value;
+
+        var vecIL2 = getVecFromAngle(this.value, alp);
+        drawVec(vecIL2, zero, origin, "green", n, stroke);
+        console.log(il2);
+    }
+
+    il3Slider.oninput = function(){
+        var alp=30, il3 = this.value;
+
+        var vecIL3 = getVecFromAngle(this.value, alp);  
+        drawVec(vecIL3, zero, origin, "blue", n, stroke);
+        console.log(il3);
+    }
+
+
+        var alp1=270; alp2=150; alp3=30,n=5,stroke=2;
+
+        var vecIL1 = getVecFromAngle(this.value, alp1);
+        var vecIL2 = getVecFromAngle(this.value, alp2);
+        var vecIL3 = getVecFromAngle(this.value, alp3);  
+
+        var vecIL1 = getVecFromAngle(this.value, alp1);
+        var vecIL2 = getVecFromAngle(this.value, alp2);
+        var vecIL3 = getVecFromAngle(this.value, alp3);  
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        drawVec(vecIL1, zero, origin, "red", n, stroke);
+        drawVec(vecIL2, zero, origin, "green", n, stroke);
+        drawVec(vecIL3, zero, origin, "blue", n, stroke);
+    */
+</script>
+
+</body>
+</html>

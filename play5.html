@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      let data;
+      const timeService = new WebSocket("ws://localhost:8443");
+
+      timeService.onmessage = function (e) {
+        data = JSON.parse(e.data);
+        if (data && data.type == "time") document.body.textContent = data.time;
+      };
+      setInterval(function(){ console.log(data)}, 1000)
+    </script>
+  </body>
+</html>

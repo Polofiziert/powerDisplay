@@ -1,0 +1,52 @@
+<script>
+  let mI = {
+    U12: {
+      get: function () {
+        return Math.random();
+      },
+      name: "U12",
+    },
+    U13: {
+      get: function () {
+        return Math.random();
+      },
+      name: "U13",
+    },
+    U23: {
+      get: function () {
+        return Math.random();
+      },
+      name: "U23",
+    },
+    capsual: function () {
+        var cap = {};
+        for (const [key1, value1] of Object.entries(mI)) {
+            if(key1 != "capsual"){
+
+                cap[key1] = {};
+                for (const [key2, value2] of Object.entries(value1)) {
+                    if (typeof value2 === "function") {
+                        const n = value2(); //freez value2
+                        cap[key1][key2] = function(){return n};
+                    } else {
+                        cap[key1][key2] = value2;
+                    }
+                }
+            }
+            
+        }
+        return cap;
+    },
+  };
+
+  var timecap = mI.capsual();
+  console.log(timecap);
+  console.log(timecap.U12.get);
+  console.log(timecap.U12.get());
+  console.log(timecap.U13.get);
+  console.log(timecap.U13.get());
+  console.log(timecap.U23.get);
+  console.log(timecap.U23.get());
+
+
+</script>

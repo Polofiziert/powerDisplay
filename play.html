@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html> /Library/Developer/CommandLineTools
+<body>
+<h1>HTML5 Canvas</h1>
+<h2>Draw a Line</h2>
+
+<canvas id="myCanvas" width="500" height="500" style=""></canvas>
+
+
+<p>x1<p id="x1"></p></p>
+<p>y1<p id="y1"></p></p>
+
+<p>x2<p id="x2"></p></p>
+<p>y2<p id="y2"></p></p>
+
+<p>x3<p id="x3"></p></p>
+<p>y3<p id="y3"></p></p>
+
+
+<script>
+    // Create a canvas:
+    const canvas = document.getElementById("myCanvas");
+    const x3Text = document.getElementById("x3");
+    const y3Text = document.getElementById("y3");
+    const x2Text = document.getElementById("x2");
+    const y2Text = document.getElementById("y2");
+    const x1Text = document.getElementById("x1");
+    const y1Text = document.getElementById("y1");
+
+    function sine(degree) {
+        // radians = degrees * PI / 180
+        let x = Math.sin(degree * Math.PI / 180);
+        return x.toFixed(2);   
+    }
+    function cos(degree) {
+        // radians = degrees * PI / 180
+        let x = Math.cos(degree * Math.PI / 180);
+        return x.toFixed(2);   
+    }
+
+
+    const ctx = canvas.getContext("2d");
+
+    var l1=1,l2=12,l3=6, alp=60, n=15, c=250;
+
+    //L1
+    var y1 = sine(alp)*l1;
+    var x1 = cos(alp)*l1;
+
+    console.log(sine(alp));
+    console.log(cos(alp));
+
+    x2Text.innerText = x1;
+    y2Text.innerText = y1;
+
+    cX1 = c-(x1*n) //x*n
+    cY1 = c+(y1*n)
+
+    ctx.beginPath();
+    ctx.strokeStyle = "green";
+    ctx.moveTo(c,c);
+    ctx.lineTo(cX1,cY1);
+    ctx.stroke();
+
+    //L2
+
+    var y2 = sine(alp)*l2;
+    var x2 = cos(alp)*l2;
+
+    x2Text.innerText = x2;
+    y2Text.innerText = y2;
+
+    cX2 = c-(x2*n) //x*n
+    cY2 = c-(y2*n)
+
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(c,c);
+    ctx.lineTo(cX2,cY2);
+    ctx.stroke();
+
+    //L3
+    var x3 = l3;
+    var y3 = 0;
+
+    x1Text.innerText = x3;
+    y1Text.innerText = y3;
+
+    var cX3 = c+(x3*n) //x*n
+    var cY3 = c+(y3*n)
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.moveTo(c,c);
+    ctx.lineTo(cX3,cY3);
+    ctx.stroke();
+
+    //L1-2-3 N
+
+    var X12 = cX1-(x2*n); //x*n
+    var Y12 = cY1-(y2*n);
+
+    var X123 = X12+(x3*n); //x*n
+    var Y123 = Y12+(y3*n);
+
+    var XN = c+X123;
+    var YN = c-Y123;
+
+    ctx.beginPath();
+    ctx.strokeStyle = "pink";
+    ctx.moveTo(cX1,cY1);
+    ctx.lineTo(X12,Y12);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "pink";
+    ctx.moveTo(X12,Y12);
+    ctx.lineTo(X123,Y123);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "cyan";
+    ctx.moveTo(X123,Y123);
+    ctx.lineTo(XN,YN);
+    ctx.stroke();
+
+
+/*
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(50,0);
+    ctx.lineTo(50,100);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(0,50);
+    ctx.lineTo(100,50);
+    ctx.stroke();
+    */
+</script>
+
+</body>
+</html>
