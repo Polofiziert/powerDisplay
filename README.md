@@ -14,3 +14,19 @@ Gesammt Projekt
   + index.html onePager
 - powerManager
   + index.html (evtl onePager)
+
+
+
+Data Flow SensorData
+                                                                    +-> mqtt.js
+Sensor -> microController -> CAN seriel Bus -> CAN.js -> index.js - |
+                                                                    +-> socket.js
+
+
+Controlldaten
+                                                  +-> mqtt.js -> index.js (of subsequent powerDisplays)
+powerManager -> socket.js -> index.js -> mqtt.js -|
+                                                  +-> mqtt.js -> index.js (of subsewquent powerDisplays)
+
+Hirachi
+- ein powerDisplay kann eine session eröffnen, dieses ist dann powerManager(sessionMaster) 
