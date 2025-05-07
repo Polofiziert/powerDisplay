@@ -9,7 +9,8 @@ Gesammt Projekt
   + index.js > for orchestration
   + socket.js > WebSocket to pD and PM
   + mqqt.js > MQTT RX and TX from network
-  + CAN.js > Sensor data Import over CANbus for future profing an compatability
+  + sensorImport.js > Sensor data Import over CANbus for future profing an compatability
+  + modbus.js > Data import src
 - powerDisplay
   + index.html onePager
 - powerManager
